@@ -81,10 +81,6 @@ $('.bubble').on('mouseenter touchstart', function() {
         setTimeout(function() {
             $bubble.hide();
             setTimeout(function() {
-                // Randomize position
-                var topPos = (Math.random() * 100) + '%';
-                var leftPos = (Math.random() * 100) + '%';
-                $bubble.css("top", topPos).css("left", leftPos);
                 $bubble.removeClass('bubble-pop').show();
             }, 1000); // Bubble reappears after 1 second
         }, 250); // Faster pop
