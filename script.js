@@ -14,46 +14,14 @@ const messages = [
 ];
 
 let messageIndex = 0;
-let hasReachedMaxWidth = false;
-
-function checkButtonWidth() {
-    const yesButton = document.querySelector('.yes-button');
-    const container = document.querySelector('.container');
-    const containerWidth = container.offsetWidth;
-    const buttonWidth = yesButton.offsetWidth;
-    
-    // Check if button width is approaching container width (with some padding)
-    return buttonWidth >= (containerWidth * 0.8);
-}
 
 function handleNoClick() {
-    if (hasReachedMaxWidth) {
-        return; // Stop processing if max width reached
-    }
-    
     const noButton = document.querySelector('.no-button');
     const yesButton = document.querySelector('.yes-button');
-    
-    // Check if we've reached max width before increasing size
-    if (checkButtonWidth()) {
-        noButton.textContent = "I am not asking anymore";
-        hasReachedMaxWidth = true;
-        return;
-    }
-    
     noButton.textContent = messages[messageIndex];
     messageIndex = (messageIndex + 1) % messages.length;
-    
     const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
-    yesButton.style.fontSize = `${currentSize * 1.1}px`; // Reduced multiplier for more gradual growth
-    
-    // Check again after resizing
-    setTimeout(() => {
-        if (checkButtonWidth()) {
-            noButton.textContent = "I am not asking anymore";
-            hasReachedMaxWidth = true;
-        }
-    }, 10);
+    yesButton.style.fontSize = `${currentSize * 1.5}px`;
 }
 
 function handleYesClick() {
@@ -120,15 +88,5 @@ $('.bubble').on('mouseenter touchstart', function() {
                 $bubble.removeClass('bubble-pop').show();
             }, 1000); // Bubble reappears after 1 second
         }, 250); // Faster pop
-    }
-});
-
-// Handle window resize to check if buttons need to be reset
-window.addEventListener('resize', function() {
-    if (hasReachedMaxWidth && !checkButtonWidth()) {
-        hasReachedMaxWidth = false;
-        const noButton = document.querySelector('.no-button');
-        noButton.textContent = "No";
-        messageIndex = 0;
     }
 });

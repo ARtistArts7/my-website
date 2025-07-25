@@ -17,7 +17,6 @@ body {
     width: 100%;
     box-sizing: border-box;
     position: relative;
-    z-index: 1;
   }
   
   h1 {
@@ -27,7 +26,7 @@ body {
   }
   
   .buttons {
-    margin: 10px auto;
+    margin: 20px auto;
     background: rgba(255, 255, 255, 0.582);
     backdrop-filter: blur(12px) saturate(200%);
     -webkit-backdrop-filter: blur(12px) saturate(200%);
@@ -67,6 +66,7 @@ body {
   
   .gif_container {
     position: relative;
+    margin-top: 20px;
   }
   
   .gif_container1 img {
@@ -213,7 +213,7 @@ body {
   width: 100%;
   height: 100vh;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
 }
 .layer1 {
   opacity: 0.3;
@@ -252,6 +252,13 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffc0cb', endColorstr='#ffc0cb',GradientType=1 );
   border-radius: 50%;
   pointer-events: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  z-index: 1;
+}
+
+.bubble:hover {
+  transform: scale(1.1);
 }
 .bubble:after {
   content: "";
