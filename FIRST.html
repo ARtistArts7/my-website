@@ -8,37 +8,29 @@
 </head>
 <body>
     <div class="container">
+         <div class="gif_container">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExczA1azhnODcxZ2pzOGhhbDJzd2tla3hhMm14NXpwZG0zc2wydXFmciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/m9YZVin3cgIlPQzE2A/giphy.gif" alt="Cute GIF">
+            <!-- <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF"> -->
+        </div>
         <div id="questions">
             <button class="question-btn" onclick="showNextQuestion(1)">Are you okay?</button>
             <button class="question-btn" onclick="showNextQuestion(2)" style="display:none;">Is everything okay?</button>
             <button class="question-btn" onclick="showNextQuestion(3)" style="display:none;">Are you really okay?</button>
             <button class="question-btn" onclick="showNextQuestion(4)" style="display:none;">Are you sure you're okay?</button>
-            <button class="question-btn" onclick="showNextQuestion(5)" style="display:none;">I have a genuine question!</button>
+            <button class="question-btn" onclick="goToNextPage()" style="display:none;">I have a genuine question!</button>
         </div>
         <script>
             function showNextQuestion(index) {
-                const questions = document.querySelectorAll('#questions .question-btn');
-                if (index < questions.length) {
-                    // Add burst animation to the current button
-                    questions[index - 1].classList.add('burst');
-                    // After animation, hide current and show next
-                    setTimeout(() => {
-                        questions[index - 1].style.display = 'none';
-                        questions[index].style.display = '';
-                        questions[index - 1].classList.remove('burst');
-                    }, 500); // Match with animation duration
-                }
+            const questions = document.querySelectorAll('#questions .question-btn');
+            if (index < questions.length) {
+                questions[index - 1].style.display = 'none';
+                questions[index].style.display = '';
+            }
+            }
+            function goToNextPage() {
+            window.location.href = "index.html";
             }
         </script>
-    </div>
-        <div class="buttons">
-            <button class="yes-button" onclick="handleYesClick()">Yes</button>
-            <button class="no-button" onclick="handleNoClick()">No</button>
-        </div>
-        <div class="gif_container">
-            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExczA1azhnODcxZ2pzOGhhbDJzd2tla3hhMm14NXpwZG0zc2wydXFmciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/m9YZVin3cgIlPQzE2A/giphy.gif" alt="Cute GIF">
-            <!-- <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF"> -->
-        </div>
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
     <script src="script.js"></script>
