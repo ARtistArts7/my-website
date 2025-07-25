@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A request</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+         <div class="gif_container1">
+         <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExczA1azhnODcxZ2pzOGhhbDJzd2tla3hhMm14NXpwZG0zc2wydXFmciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/m9YZVin3cgIlPQzE2A/giphy.gif" alt="Cute GIF">
+            <!-- <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF"> -->
+        </div>
+        <div id="questions">
+            <button class="question-btn" onclick="showNextQuestion(1)">Are you okay?</button>
+            <button class="question-btn" onclick="showNextQuestion(2)" style="display:none;">Is everything okay?</button>
+            <button class="question-btn" onclick="showNextQuestion(3)" style="display:none;">Are you really okay?</button>
+            <button class="question-btn" onclick="showNextQuestion(4)" style="display:none;">Are you sure you're okay?</button>
+            <button class="question-btn" onclick="goToNextPage()" style="display:none;">I have a genuine question!</button>
+        </div>
+        <script>
+            function showNextQuestion(index) {
+            const questions = document.querySelectorAll('#questions .question-btn');
+            if (index < questions.length) {
+                questions[index - 1].style.display = 'none';
+                questions[index].style.display = '';
+            }
+            }
+            function goToNextPage() {
+            window.location.href = "question.html";
+            }
+        </script>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+    <script src="script.js"></script>
+</body>
+</html>
